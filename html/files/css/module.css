@@ -1,0 +1,233 @@
+@charset "UTF-8";
+/* CSS Document */
+
+div#wrapper {
+	color: #404040;
+	line-height: 1.6em;
+	background: url(../images/bg.png) top left repeat;
+}
+
+div#contents {
+	position: relative;
+	width: 960px;
+	margin: 0 auto 40px;
+	padding: 0 	10px;
+	background : #fff;
+}
+
+/*
+***     CONTENTS    ***  
+*/
+
+div#contentsWrapper {
+}
+
+div#main {
+	float: left;
+	width: 630px;
+}
+
+div.blk01 {
+	margin-bottom: 40px;
+}
+
+div.blk02 {
+	margin-bottom: 20px;
+}
+
+div.blk03 {
+	margin-bottom: 10px;
+}
+
+div.exp01 {
+	margin-bottom: 40px;
+	padding: 15px 20px;
+	background: #f06080;
+}
+
+div#main h2,
+div#main h3,
+div#main h4,
+div.exp01 h2,
+div.exp01 p {
+	color: #FFF;
+}
+
+div#main h2,
+div#main h3,
+div#main h4,
+div#main h5,
+div#main h6 {
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+div#main h2 {
+	font-size: 153.9%;
+	padding: 15px 20px;
+	background: #1da802;
+}
+
+div#main h3 {
+	font-size: 130.8%;
+	padding: 10px 20px;
+	background: #90bf87;
+}
+
+div#main h4,
+div#main h5,
+div#main h6 {
+	margin-left: 20px;
+}
+
+div#main h4 {
+	font-size: 123.1%;
+	padding: 10px 20px;
+	background: #aab7a8;
+}
+
+div#main h5{
+	font-size: 115.4%;
+	padding: 5px 20px;
+	background: #ebf2e9;
+	color: #929292;
+}
+
+div#main h6,
+div#main dt {
+	font-size: 115.4%;
+	color: #52bb3e;
+}
+
+div#main p,
+div#main dl,
+div#main dt,
+div#main dd,
+div#main ul {
+	margin: 0 0 20px 20px;
+}
+
+div#main dt {
+	font-weight: bold;
+}
+
+div#main ul.innerList01 {
+	margin-left: 40px;
+}
+
+div#main li {
+	margin-bottom: 10px;
+}
+
+div#main div.exp01 h2 {
+	margin-bottom: 10px;
+	padding: 0;
+	background: none;
+	font-size: 123.1%;
+}
+
+div#main div.exp01 p {
+	margin: 0;
+	padding: 0;
+}
+
+div#main div.exp01 ul {
+	margin: 10px 0 0 15px;
+	color: #fff;
+}
+
+div#main div.exp01 .syntaxhighlighter {
+	width: 590px;
+	margin: 0!important;
+}
+
+/*
+***     N A V I    ***  
+*/
+
+div#navi {
+	float: right;
+	width: 330px;	
+}
+
+div#navi ul li a {
+	color: #fff;
+	background: url(../images/navi_line.png) bottom left repeat-x;		
+}
+
+div#navi ul li a:hover,
+div#navi ul li a.active {
+	font-weight: bold;
+	background-image: url(../images/navi_line_on.png);		
+}
+
+div#navi ul li.naviParent ul li {
+	/*display: none;
+	overflow: auto;
+	height: 0;*/
+}
+
+div#navi ul.pageNavi {
+	width: 290px;
+	margin-left: 20px;
+	background: #72c3f7;
+	border: solid #cde8f9 10px;
+}
+
+
+
+
+div#navi ul.pageNavi li a {
+	display: block;
+	padding: 10px 15px 15px 15px;
+	text-decoration: underline;
+}
+
+div#navi ul.pageNavi li a:hover {
+}
+
+div#navi ul.pageNavi li a:hover {
+	text-decoration: none;
+}
+
+div#navi ul.indexList01 li,
+div#navi ul.indexList02 li {
+	margin-left: 0;
+}
+
+div#navi ul.indexList01 li a {
+	padding-left: 30px;
+}
+
+div#navi ul.indexList02 li a {
+	padding-left: 45px;
+}
+
+div#navi ul li a.navLast {
+	background: none;
+}
+
+/*	text  */
+.em01 {
+	font-weight: bold;
+	color: #c10000;
+}
+
+/** clearfix  */
+
+div#contentsWrapper:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+
+div#contentsWrapper {
+	*zoom: 1;
+}
+
+
+
+

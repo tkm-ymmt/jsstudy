@@ -1,0 +1,1019 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>JavaScript: 1</title>
+<link href="files/css/import.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="files/css/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="files/css/shCore.css" />
+<link type="text/css" rel="stylesheet" href="files/css/shCoreDefault.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+	<!-- CONTENTS -->
+   	<div id="contents">
+    	<h1 id="siteID">
+        	<img src="files/images/tit.png" alt="" width="960" height="215" />
+        </h1>
+        <!-- CONTENTS WRAPPER -->
+        <div id="contentsWrapper">
+        	<!-- MAIN -->
+            <div id="main">
+            	<div class="blk01">
+                    <h2 id="intro">0. javascriptとは</h2>
+                    <p>Sun Microsystems社とNetscape Communications社が開発した、Webブラウザなどでの利用に適したスクリプト言語(簡易プログラミング言語)。
+Sun社のJava言語に似た記法を用いることが名称の由来だが、直接の互換性は無い。<br />
+従来は印刷物のような静的な表現しかできなかったWebページに、動きや対話性を付加することを目的に開発され、主要なWebブラウザのほとんどに搭載されている。</p>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習01</h2>
+                    <p>開発環境について</p>
+                </div>
+                
+                <div class="blk01">
+                	<h2 id="basic">1.  javascriptの基本文法 </h2>
+                    <h3 id="basic.var">(1) 変数</h3>
+                    <p>変数は値に関連付けられる名前。変数に値を格納するとか代入するといった言い方をします。<br />
+                    変数を利用することで、プログラムによるデータの格納や操作が可能になります。</p>
+                    <h5>宣言</h5>
+                    <p>変数を定義することを"宣言する"と言います。<br />キーワード、"var"で宣言します。</p>
+                    <pre class="brush: js">
+                    	var i;<br />
+                        var aisatsu;
+                    </pre>
+                    <h5>代入</h5>
+                    <p>変数の中に値を格納することを"代入する"と言います。<br />
+                    =演算子 を使います。</p>
+                    <pre class="brush:js">
+                    	i = 5;                 // 一度宣言したら "var" はいらない。
+                        aisatsu = "HELLO";	   // 文字列を代入する際はダブル/シングルコーテーションで囲む。
+                        var summer = "暑い";   // 宣言と代入を一緒に。
+                        var marathon = 42.195; // 小数も代入可能。
+                        var nextX = x + x; 	   // 式もいけます。
+                    </pre>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習02</h2>
+                    <p>alert文で変数を出力する。</p>
+                    <pre class="brush:js">
+                    	alert();
+                    </pre>                    
+                </div>  
+                
+                <div class="blk01">
+                    <h3 id="basic.expressions">(2) 式と文</h3>
+                    <h4 id="basic.expressions.data">[1] データ型</h4>
+                    <p>プログラムは処理を実行する際に値を操作します。プログラミング中で操作する値の型のことをデータ型と呼びます。</p>
+                    
+                    <h5>1. 数値</h5>
+                    <pre class="brush: js">
+                    //整数
+                    0
+                    20
+                    1000<br />
+                    //小数
+                    1.4
+                    3.67
+                    0.69888739<br />
+                    //最初に0xと付けると16進数も記述できます。
+                    0x8899CC
+                    0xC10000
+                    </pre>
+                    <h5>2. 文字列</h5>
+                    <pre class="brush: js">
+                    	"javascript勉強会"
+						"500"
+						'<a href ="#anc01">こちらから</a>' // 文字列中にコーテーションを使いたいときは
+                        								// 別のコーテーションを使う
+                    </pre>
+                    <h5>3. 論理値</h5>
+                    <p>true か false のどちらか。if文などの制御構造で使うのが一般的。</p>
+                    <pre class="brush: js">
+                    if( a == 4 ){	// a == 4 が true の時 という意味。
+                   		 b = b + 1;
+                    }
+                    </pre>
+                                        
+                      <h5>4. null値</h5> 
+                      <p>値がないことを示す特別なキーワード。論理値へ変換（キャスト）するとfalse。</p>
+                      <h5>5. undefined値</h5>
+                      <p>値が未定義のときに返される値。<br />
+                      null に似ているけど違う。</p>
+                      <pre class="brush: js">
+                      a[100];				// 宣言後に値が代入されない時もundefinedが返ってくる。</pre>
+                      
+                     <p>その他に関数、配列、オブジェクトがありますが、ここでは名前だけ覚えておく程度で大丈夫です。
+                     後ほど、詳しく解説していきます。</p>         	
+                </div>
+                
+                <div class="blk01">
+                	<h4 id="basic.expressions.literals">[2] リテラルと式</h4>
+                    <p>プログラムに直接記述するデータ値のことをリテラルと呼びます。<br />
+                    式とはjavascriptインタプリタが評価して値を生成できるものを式と呼びます。<br />
+                    リテラルや変数名も式です。</p>
+                    
+                    <pre class="brush: js">
+                    12								// 数値12
+					1.2								// 数値1.2
+					"hello world"					// 文字列
+					'iPhone'						// 文字列 シングルクォーテーションも可
+					true							// 論理値
+					false							// おなじく論理値
+					null							// null値
+					{ x: 1, y:2 }					// オブジェクトリテラル
+					[3, 19, "kyoto"]				// 配列リテラル
+					function(x){ return x*x } 		// 関数リテラル
+					i								// 変数 i
+					sum								// 変数 sum
+                    </pre>
+                    <p>上記の単純な式を組み合わせると複雑な式をつくることができます。</p>
+                    <pre class="brush: js">
+                   		i + 12
+                    </pre>
+                    
+                    <p>この式の値は、２つの式の値を加算した結果になります。<br />
+                    +記号 を演算子と呼びます。
+                    </p>
+                </div>
+                
+                <div class="blk01">
+                	<h4 id="basic_expressions_operator">[3] 演算子</h4>
+                    <h5>1. 算術演算子</h5>
+                    <p>数学の四則演算の演算子<br />
+                    + -  *(×)  /(÷)  %</p>
+                    <h6>1  加算演算子</h6>
+                    <p>数値オペランド(=演算の対象になる値や変数のこと)の加算(足し算) 、文字列オペランドの連結に使用します。<br />
+                    どちらか一方のオペランドが文字列の場合は、他方のオペランドを文字列に変換し、連結し、結果を文字列として返します。<br />
+                    オブジェクトの場合は数値に変換して加算するか、文字列に変換して連結します。</p>
+                    <pre class="brush:js">
+                    1 + 10      		// 11
+                    "1" + 10			// 110 (文字列)
+					"x" +  "x" 			// xx<br />
+					var n = 10;
+					n + 2				// 12
+					n + "2"				// 102
+					n + "hub"			// 10hub
+                    </pre>
+                    <h6>2 減算演算子( - )</h6>
+                    <p>引き算です。　オペランドが数値でない場合、数値に変換されます。</p>
+                    <pre class="brush:js">
+                    10 - 2      		// 8
+					10 - 200     		// -190
+					10 - "summer"      	// NaN... 数値ではないことを表す返り値 Not A Number
+							
+					var n = 20;
+					n - 2				// 8
+					n - "2"				// 8
+                    </pre>
+                    
+                    <h6>3 乗算演算子( * )</h6>
+                    <p>掛け算です。　オペランドが数値でない場合、数値に変換されます。</p>
+                    <h6>4 除算演算子( / )</h6>
+                    <p>割り算です。　オペランドが数値でない場合、数値に変換されます。</p>
+                    <pre class="brush:js">
+                    10 * 2				// 20
+					10 /  2				// 5
+								
+					5 / 2				// 2.5
+					10 / 3				// 3.33333333333…
+					10 / 0				// Infinity ... 無限大を表す返り値
+                    </pre>
+                    <h6>5 剰余演算子( % )</h6>
+                    <p>割り算した余りが返されます。　オペランドが数値でない場合、数値に変換されます。</p>
+                    <pre class="brush: js">
+                    5 % 2				// 1
+					1 % 2				// 1
+					10 % 2				// 0
+                    </pre>
+                    
+                    <h6>6 インクリメント( ++ ),デクリメント演算子( -- )</h6>
+                    <p>++演算子はオペランドに１を加えます。( --演算子は 1 を引きます)<br />
+                    オペランドが数値でない場合、数値に変換されます。<br />
+                    オペランドが変数、配列要素、オブジェクトのプロパティのいずれかでなければ使えません。<br />
+                    オペランドに対して演算子を置く場所で、働きが異なります。</p>
+                    <p>
+                   <strong>プレインクリメント</strong> ++ i;<br />
+                   オペランドの値に1を加え、式の評価結果も1を加えた値になります。<br />
+                   <strong>ポストインクリメント</strong>   i++;<br />
+                   オペランドの値に1を加えますが、式の評価結果は「元の値」になります。
+                    </p>
+                    <pre class="brush: js">
+                    i = 10;
+					j = ++i			// i == 11,  j == 11
+					j = --i			// i == 9,  j == 9
+																		
+					i = 10;
+					j = i++;		// i == 11,  j == 10
+					j = i--;		// i == 9,  j == 10
+                    </pre>
+                    
+                    <h6>7 算術を伴う代入演算子</h6>
+                    <p>代入演算子と算術演算子を組み合わせたショートカットがあります。</p>
+                    <pre class="brush:js">
+                    a += 5				//	a = a+5
+					a -= 10				//	a = a-10
+					a *= 10				//	a = a*10
+                    </pre>
+                   </div>
+                   
+                   <div class="exp01">
+                   	<h2>実習03</h2>
+                   	<p>演算子を使って計算してみましょう。<br />
+                    ex)<br />
+                    文字列の連結、変数を計算してみる、変数の中に計算をいれて計算してみる。
+                   </p>
+                   </div>
+                   
+                   <div class="blk01"> 
+                    <h5>2. 等値演算子(==)</h5>
+                    <p>== 演算子は２つのオペランドの値が同じかどうかを調べます。</p>
+                    <dl>                    	
+                        <dt>== 演算子が同一であると判定するルール</dt>
+                        <dd>
+                        	<ul>
+                        		<li>・ どちらも同じ型の場合は両方の値が同一かどうかを調べる。値が同じであれば等しいと判定する。</li>
+                                <li>・ 型が異なる場合、両方が同じ型になるように変換してから等しいかどうか判定する。
+                                	<ul class="innerList01">
+                                		<li>→ 一方が数値で一方が文字列の場合、文字列を数値に変換してから比較する</li>
+                                        <li>→ 一方がnull で他方が未定義の場合、等しいと判定する。</li>
+                                        <li>→ 一方の値がtrueの場合、trueを1に変換してから比較する。falseの場合、0に変換する。</li>
+                                	</ul>
+                                </li>
+                        	</ul>
+                        </dd>
+                    </dl>
+                    <h6>不等演算子(!=)</h6>
+                    <p>!= 演算子と !==演算子は　それぞれ ==演算子と ===演算子の逆になります。等しい場合falseを返し、異なる場合trueを返します。</p>
+                    <p>その他<span class="em01">同値演算子( === )</span> と<span class="em01">非同値演算子( !== )</span>があります。<br />
+                    それぞれ等値、不等演算子より厳密にオペランド同士が等しいか等しくないか調べます。<br />
+                    同値演算子と等値演算子の細かな違いはありますが、ここでは名前を覚えておく程度で大丈夫です。</p>
+                    <h5>3 関係演算子</h5>
+                    <p>２つの値の関係を調べて、その結果をtrueかfalseで返します。</p>
+                    <h6>1 小なり演算子 (<)</h6>
+                    <p>1番目のオペランドが２番目のオペランドより小さいときにtrueを、大きい時にfalseを返します。</p>
+                    <h6>2 大なり演算子 (>)</h6>
+                    <p>1番目のオペランドが２番目のオペランドより大きいときにtrueを、小さい時にfalseを返します。</p>
+                    <h6>3 小なりイコール演算子 (<=)</h6>
+                    <p>1番目のオペランドが２番目のオペランドに等しいか、あるいはより小さいときにtrueを、大きい時にfalseを返します。</p>
+                    <h6>4 大なりイコール演算子 (>=)</h6>
+                    <p>1番目のオペランドが２番目のオペランドに等しいか、あるいはより大きいときにtrueを、大きい時にfalseを返します。</p>
+                    <p>オペランドには任意の型が指定できます。比較は数値か文字列のどちらかの型で行われるので、どちらの型でもない場合変換して比較されます。</p>
+                    <ul>
+                    	<li>・両方のオペランドが文字列の場合、アルファベット順で比較されます。大文字と小文字は区別されます。その場合大文字 < 小文字　になります。<br />
+                        <pre class="brush:js">
+                        Zoo < art	// true
+                        </pre>
+                        </li>
+                        <li>・数値と文字列で比較する場合、文字列が数値に変換されます。文字列が数値に変換できない場合の結果はfalseになります。</li>
+                        <li>・オペランドが数値にも文字列にも変換できない場合の結果はfalseになります。</li>
+                        <li>・オペランドのどちらかがNaNであるか、NaNに変換されるものである場合、比較結果はfalseになります。</li>
+                        <li>・オペランドがオブジェクトで、数値化文字列に変換可能な場合、オブジェクトは数値に変換されます。</li>
+                    </ul>
+                    </div>
+                    
+                    <div class="exp01">
+                    	<h2>実習04</h2>
+                        <p>console.log(); と等値、比較演算子を使って真偽値を出力してみましょう。</p>
+                        <pre class="brush:js">
+                    		console.log();
+                    	</pre>                         
+                    </div>
+                    
+                    <div class="blk01">
+                    <h5>4 論理積演算子(&&)と論理和演算子(||)</h5>
+                    <p>&& 演算子は前のオペランドと後ろのオペランドの両方がtrueの場合にtrueになります。オペランドの一方、もいくは両方がfalseであれば結果もfalseになります。<br />
+                    || 演算子は前のオペランドと後ろのオペランドのどちらか一方がtrue、もしくは両方がtrueの場合、trueを返します。両方のオペランドがfalseの場合、falseを返します。</p>
+                    
+                    <pre class="brush:js">
+                    a = 10, b = 20
+					if( a < 15 && b == 20) stop();			// true
+					if( a == 15 && b == 20) stop();			// false
+					
+					if( a == 15 || b == 20) stop();			// true
+					if( a >= 15 || b != 20) stop();			// true
+					if( a == 15 || b != 20) stop();			// false			
+                    </pre>
+                </div>
+                
+                    <div class="exp01">
+                    	<h2>実習05</h2>
+                        <p> && と || を使って真偽値をコンソールに出力してみましょう。</p>                      
+                    </div>                
+                
+                <div class="blk01">
+                	<h4 id="basic.expressions.statement">[4] 文</h4>
+                    <p>javascriptに何かさせるものが文です。文は、コンピュータに命令する指令のようなものです。<br />
+                    javascriptでは幾つかの文を集めたものをプログラムといいます。文の使い方を覚えればjavascriptが書けます。<br />
+                    注意点が１つあります。文の最後には<span class="em01">必 ずセミコロン（ ; ）をつける</span>ようにしてください。</p>
+                    
+                    <h5>1 式文</h5>
+                    <p>javascriptの最も簡単な文。副作用(代入など)を伴う式。</p>
+                    <pre class="brush:js">
+                    s = "hello" + name;
+					i *= 3;
+					counter++;
+					console.log("hello"+name);
+					window.close();
+                    </pre>
+                    
+                    <h5>2 複合文</h5>
+                    <p>複数の文をまとめて { } で囲むことで文ブロックを指定します。<br />
+                    <span class="em01">{}の最後にセミコロンは入れません。</span></p>
+                    <pre class="brush:js">
+                    {
+						a = 5;
+						b = "日後に会いましょう";
+						console.log(a+b);
+					}	// セミコロンをいれない
+                    </pre>
+                    
+                    <p>式の中に他の式を挿入するように、文の中にほかの文を挿入することもできます。<br />
+					このような文を複合文と呼びます。入れ子にされた文を副文と呼びます。文ブロックを使用すると、複数の文を１つの副文として挿入できます。<br />
+					一般的には、javascriptインタプリタは複合文のすべての文を実行します。<br />
+					しかし場合によっては、複合文が中途完了する場合があります。</p>
+                    <h5>3 if文</h5>
+                    <h6>1 if文</h6>
+                    <pre class="brush:js">
+                    var score = 80;
+                    if(score >= 70){			// scoreが70以上の場合　
+						alert("合格");			
+					}
+                    </pre>
+                    <p>
+                    この書式では、まず()の中の式を評価し、その結果がtrueであるかtrueに変換可能である場合に文ブロックの文を実行します。<br />
+					式の評価結果がfalseであるかfalseに変換可能である場合にはstatementを実行しません。<br />
+                    if文ではexpressionを ( ) で囲む決まりになっていることに注意。</p>
+                    
+                    <h6>2 else文のあるif文</h6>
+                    <p>式の評価結果がfalseの場合に、else句が実行されます。</p>
+                    <pre class="brush:js">
+                    var score = 80;
+                    if(score >= 70){		　
+						alert("合格");			
+					} else {				// 条件がfalse(70未満)の場合
+                    	alert("不合格");
+                    }
+                    </pre>
+                    <p>この書式の場合()の評価結果がtrueの場合は最初の文ブロック を実行し、falseの場合はelse以下を実行します。<br />
+                    入れ子にすることもできます。</p>
+                    
+                    <pre class="brush:js">
+                    var score = 80;
+                    if(score >= 70){		　
+						if(score >= 80){
+                        	alert("優");
+                        } else {
+                        	alert("良");
+                        }   
+					} else {
+                    	alert("不合格");
+                    }
+                    </pre>
+                     <p>このときに文ブロックを使わないとelse句の部分が正しく実行されなくなるので注意。</p>
+                     
+                     <h5>3 else if文</h5>
+                     <p>条件の判定結果に基づいて、3つ以上のコードを実行したいとき、else if文が使われます。</p>
+                     <pre class="brush:js">
+                     if( n == 1 ){
+							// コードブロック1を実行
+						} else if( n == 2 ){
+							// コードブロック2を実行
+						} else if( n == 3 ){
+							// コードブロック3を
+						} else {
+							// 上記の条件が成立しない場合(nが1でも2でも3でもない場合)コードブロック4を実行
+						}
+                     </pre>
+                     
+                     <p>前述の入れ子になっているif/else文を else if文で書きなおしてみましょう。</p>
+                     <pre class="brush:js">
+                     var score = 80;
+                    if(score >= 80){
+                    	alert("優");
+                    } else if( score >= 70 ){
+                    	alert("良");
+                    } else {
+                    	alert("不合格");
+                    }
+                     </pre>
+                     
+                     <p>通常javascriptの文は上から実行されていきますので、優先させたい条件文を上に記述します。<br />
+					score >= 70 と　score >= 80は条件がバッティングしているので、 score >= 80 を先に記述しないと評価されないのです。</p>
+                    </div>
+                    
+                    <div class="exp01">
+                    	<h2>実習06</h2>
+                        <p>警察官がスピード違反の取締をしています。</p>
+                        <ul>
+                        	<li>・制限速度を40kmオーバーなら、免停</li>
+                        	<li>・制限速度を30kmオーバーなら、罰金￥100,000</li>
+                        	<li>・制限速度を20kmオーバーなら、罰金￥10,000</li>
+                        	<li>・制限速度を10kmオーバーなら、ぎりぎりok</li>
+                        </ul>
+                        <p>と表示するif文を<br />
+                        変数 speed, punishment を使い作成してみましょう。 
+                        </p>
+                    </div>
+                    
+                    <div class="blk01">
+                    <h5>5 switch文</h5>
+                    <p>if文の分岐条件で使用する変数が１つだけの場合、複数のif文を使用して多重分岐させるのは、同じ変数を何回もチェックする点が無駄になるのでベストとは言えません。<br />
+                    複数のif文を使用するより効率的な文がswitch文です。</p>
+                    <pre class="brush:js">
+                    switch(n){
+						case i:								// n == iの場合、ここから開始する。
+							// コードブロック1を実行
+							break;						   	// 中断する
+						case ii:							// n == iiの場合、ここから開始する。
+							// コードブロック2を実行
+							break;							// 中断する
+						case iii:							// n == iiiの場合、ここから開始する。
+							// コードブロック3を実行
+							break;							// 中断する
+						default:							// どの条件にも当てはまらない場合、ここから開始する。
+							// コードブロック4を実行
+							break;							// 中断する
+					}
+                    </pre>
+                    <p>それぞれのcase句の最後にbreakがあることに注意してください。<br />
+					break文が実行されるとswitch文またはループの最後に処理が移動します。<br />
+					switch文のcase句は実行すべきコードの開始点を示すだけで、終了点は示していません。<br />
+					したがって、break文を省略すると評価する式の値(この場合 nの値)に一致したcaseラベルの後ろにあるコードブロックから
+					処理を開始し、コードブロックの終わりまで一連の文を処理していきます。<br /><br />
+                    
+					n == i のときは、case i から case iiiまでの処理を全部したい！　というときもありますが
+					基本的にはcase句の最後にはbreak文を入れて処理を終わらせましょう。<br /><br />
+                    
+					switch文のexpressionに一致するcase句が存在しない場合、dafault句から処理を開始します。<br />
+					default区がない場合、switch文そのものを実行しません。</p>
+                    </div>
+                    
+                    <div class="exp01">
+                    	<h2>実習07</h2>
+                    	<p>実習06で書いた if else文をswitch文に直して書きなおしてみましょう!</p>
+                    </div>
+                    
+                    <div class="blk01">
+                    <h5>6 while文</h5>
+                    <p>条件判定するための基本的な制御文がif文であるとすれば、繰り返し処理（ループ）をするための基本的な制御文がwhile文です。while文の書式は次のとおりです。</p>
+                    <pre class="brush:js">
+                    var count = 0;
+					while( count < 10 ){
+						console.log( count );
+						count ++;
+					}
+                    </pre>
+                    
+                    <p>while文はまず()内の式を評価し、その結果がfalseの場合は実行されません。<br />
+					trueの場合は文ブロックを実行し、それから元の()内の式の評価へ戻ります。<br />
+					その評価がfalseの場合、次の文の処理へ進みますが、trueの場合は再度文ブロックを実行し、()内の式の評価へと戻ります。<br />
+					この繰り返しは()内の式の評価結果がfalseになるまで継続します。<br />
+					falseになった時点でwhile文の処理は終了し、制御が次の文へ移ることになります。<br />
+					なおwhile(true)となると無限ループになることに注意しましょう!</p>
+                    
+                    
+                    
+                    <p>
+                    このコードでは変数countの値は0から始まります。ループの本体を実行するたびに、countの値が1つ増えます。<br />
+					ループを10回繰り返すとcountの値は10回になるので、while文の式の評価結果はfalseになります。<br />
+					その時点でwhile文の処理は終了し、次の文へ処理を進めます。
+                    </p>
+                    
+                    <h5>7 for文</h5>
+                    <p>for文もループです。ループには共通となるパターンがあります。<br />
+					何らかのカウンタ変数があり、ループを開始する前にこの変数を初期化します。<br />
+					次にこの変数は評価する式の一部としてテストされ、それからループの繰り返し処理を行います。<br />
+					最後に、ループ本体の末尾でカウンタ変数を更新してから、式の評価へ戻ります。<br />
+					for文を使えば、このようなパターンのループを簡単に記述できます。</p>
+                    <pre class="brush:js">
+                    for( initialize; test; increment ){
+						statement;
+					}
+                    </pre>
+                    <p>while文の場合はこうなります。</p>
+                    <pre class="brush:js">
+                    initialize;
+						while( test ){
+							statement;
+							increment;
+						}
+                    </pre>
+                        
+                    <p>ループを開始する前に、initialize式を1回だけ評価します。通常、initialize式は代入などの副作用を伴います。<br />
+					var文を使って変数を宣言することもできます。<br />
+					繰り返しの前にtestを実行し、その結果に基づいてループ本体を実行するかどうかを決めます。<br />
+					testの評価結果がtrueの場合は、ループ本体のstatementを実行します。最後にincrement式を評価します。<br />
+					increment式も副作用を伴うものでなければなりません。</p>
+                    
+                    <pre class="brush:js">
+                    for(var count = 0; count < 10; count++){
+						console.log(count);
+					}
+                    </pre>
+                    
+                    <p>ループ変数に関する情報を１行で明示的に記述できている点に注目してください。</p>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習08</h2>
+                    <ul>
+                    	<li>・カウンタ変数は i</li>
+                        <li>・i は１ずつ10まで増える</li>
+                        <li>・変数 byFive の値は i の5倍</li>
+                        <li>・i が増えるごとに byFive の値を出力する</li>
+                    </ul>
+                    <p>上記の条件を満たすループを while文と for文で作成してみましょう^^</p>
+                </div>
+                
+                <div class="blk01">
+                <h3 id="basic.object">(3) オブジェクトと配列</h3>
+                <h4 id="basic.object.object">[1]オブジェクト</h4>
+                <h5>1 オブジェクトの生成</h5>
+                <p>オブジェクトは複合型のデータ型で、複数のデータ値を１つの単位にまとめて、名前によってこれらのデータ値の格納と取り出しを可能にするものです。</p>
+                <pre class="brush:js">var object = { x : 0, y : 10, z : 50 };</pre>
+                
+                <p>x, y, z をオブジェクトの<span class="em01">プロパティ</span>といいます。<br />
+					オブジェクトを新しく生成する際には、 { }  の中に、プロパティ名と値のペアを , で区切って記述します。<br />プロパティの値には、定数や任意のjavascript式を指定できます。</p>
+                
+                <pre class="brush:js">
+                var empty = {};			// プロパティを持たないオブジェクトを生成。
+				var point = { x:10, y:20 };
+				var circle = { x: point.x,  y: point.y + 1, radius: 2 };
+				var homer = {
+					name : "Homer Simpson",
+					age : 34,
+					married : true,
+					occupation : "plant operator",
+					email : "homer@example.com"
+				};
+                </pre>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習09</h2>
+                    <p>変数 car をオブジェクトにしてみましょう。</p>
+                    <ul>
+                    	<li>・最高速度(maxSpeed)は160Km/h</li>
+                        <li>・燃料タンク(gas)には 40リットル 入ります</li>
+                        <li>・最大乗客数(passenger)は5人です</li>
+                        <li>・燃費(efficiency)は8km/l です。</li>
+                    </ul>
+                </div>
+                
+                <div class="blk01">                   
+                 <h5>2 オブジェクトのプロパティ</h5>
+                 <p>オブジェクトのプロパティの値にアクセスするときには、通常、ドット演算子(.)を使用します。</p>
+                 
+                 <pre class="brush:js">
+                 homer.name; // "Homer Simpson"
+                 </pre>
+                 
+                 <p>すぐ後にでてくる配列演算子[] も使用できます。</p>
+                 <pre class="brush:js">
+                 homer["age"]; // "34"
+                 </pre>            
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習10</h2>
+                    <p>先ほど作った 変数carのプロパティにアクセスしてみましょう。<br />
+                    その後for inループで全てのプロパティを見てみましょう。</p>
+                    
+                 	<pre class="brush:js">
+                 	for( var p in car ){ console.log(car[p]);
+                 	</pre>
+                    
+                    <p>for inループは変数のプロパティをすべて確認するループです。<br />
+                    'var p' の箇所でカラの変数を初期化します。<br />
+                    文ブロック内の p はプロパティを代入された p になるので、'car' の箇所に調べたい変数を置くとすべてのプロパティ分、ループしてくれます。</p>    
+                </div>                
+                
+                <div class="blk01">
+                	<h4 id="basic.object.arrays">[2]配列</h4>
+                    <p>値を順序付けてまとめたものを配列と言います。個々の値を配列の要素と呼びます。書く要素に割り当てる番号をインデックスといいます。</p>
+                    
+                    <pre class="brush:js">
+                    var empty = [];	
+                    // カラの配列を作成
+                    
+					var primes = [ 2, 3, 5, 7];	
+                    //  5個の数値を要素として持つ配列を生成
+                    
+					var misc = [ 1.1, true, "a"];
+                    // 	3個のさまざまな型の値を要素として持つ配列を生成
+					
+					var base = 1024;
+					var table = [ base,  base+1,  base+2 ];
+                    //	式も記述できる
+					
+					var b = [ [1,  {x : 3, y: 5}], [5,  {x : 3, y: 6}] ]
+                    // オブジェクトや別の配列を入れ子にすることができる
+                    </pre>
+                    <p>配列の最初のインデックスは 0 になります。 2番目に書いた値のインデックスは1です。<br />
+					,  で区切るだけで値を省略した場合は、未定義の要素が生成されます。</p>
+					
+					<pre class="brush:js">
+					var count = [ 1, , 3 ];	
+                    // 要素が3つの配列。ただし2つ目の要素は未定義
+					
+                    var undef = [ , , ];
+                    //  全部未定義の配列
+                    </pre>
+                    
+                    <p>Array()コンストラクタ(初期化関数)を使って配列を生成することも可能です。</p>
+                    
+                    <pre class="brush:js">
+                    var a = new Array();	// カラの配列を生成
+					var a = new Array( 5, 4, 3, 2, "test", "number" );
+                    //	[5, 4, 3, 2, "test", "number"] と同じ
+                    </pre>
+                    <p>引数の値が1つの場合、指定された個数の要素を持つ配列が生成されます。<br />
+				この場合は各要素の値は未定義値になります。</p>
+                
+                <pre class="brush:js">
+                var n = 100;
+				var a = new Array(10);		// 要素が10個の配列
+				var a = new Array(n);		// 要素が100個の配列
+                </pre>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習11</h2>
+                	<p>先ほど作成した 変数 car を配列化してみましょう。<br />
+                    各プロパティ名は、考慮せずに各インデックスへ挿入してください。</p>
+                </div>
+                
+                <div class="blk01">
+                <h5>1 配列の要素の読み書き</h5>
+                <p>配列の要素にアクセスするときには[]演算子を使用します。<br />
+                []の中に負でない整数値を持つ任意の式を書くと配列の要素を読み書きできます。<br />配列の最初の要素のインデックスは0です。</p>
+                
+                <pre class="brush:js">
+                value = a[0];
+				a[1] = 3.14;
+						
+				i =2;
+				a[i] = 3;
+				a[i + 1]= "hello";
+				a[ a[i] ] =a[0];
+                </pre>
+                
+                <p>
+                配列のインデックスは連続した番号でなくてもかまいません。<br />
+                実際に格納する要素だけにメモリを割り当てます。
+                </p>
+                
+                <pre class="brush:js">
+                a[0] = 10;
+				a[10000] = "this is 10000!!";		// 間にある9999のインデックスに対応する要素にはメモリを割り当てない。
+                </pre>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習12</h2>
+                	<p>配列 car の各要素をループを使って出力してみましょう。</p>
+                </div>
+                
+                <div class="blk01">
+                <h5>2 配列の長さ</h5>
+                <p>配列は特別なlengthプロパティを持ちます。このプロパティには配列に格納されている要素の個数が格納されます。<br />
+					配列のインデックスは0から始まるので、インデックスの最大値より１大きい数がlengthプロパティになります。<br />
+					lengthプロパティは配列に格納されている値が増減するごとに自動的に更新されます。</p>
+                    
+                 <pre class="brush:js">
+                 var a = new Array(10);	　// a.length =10; (定義されたカラの要素は 0〜9）
+                 </pre>
+                 
+                 <p>lengthプロパティは配列の要素を巡回するときによく使います。</p>
+                 
+                 <pre class="brush:js">
+                 var city = ["Ootsu", "Kyoto", "Osaka", "Nara"];
+				for( var i = 0; i < city.length; i++){
+					console.log( city[i] );
+				}
+                 </pre>
+                 
+                 <p>
+                 上の例では配列が0から連続して格納されていることを想定しています。<br />
+                 想定できない場合、配列を使用する前に確かめる必要があります。
+                 </p>
+                 
+                 <pre class="brush:js">
+                 for( var i =0; i < city.length; i++){
+					if( city[i] ) console.log( city[i] );
+                    // city[i]が未定義でない場合、trueが返る
+				 }
+                 </pre>
+                 
+                 <p>こうすると配列の要素を初期化できます。</p>
+                 
+                 <pre class="brush:js">
+                 var lookup_table =new Array( 1024 );
+				 for( var i =0; i < lookup_table.length; i++){
+					lookup_table[i] = i* 512;
+				 }
+                 </pre>
+                 
+                 <p>lengthプロパティは読み書きが可能な値です。<br />
+					現在値より小さな値をlengthプロパティに設定すると、新たに指定された長さに配列が切り詰められます。<br />
+					格納していた値も失われます。<br />
+					現在値より大きな値をlengthプロパティに設定すると指定された長さになるまで配列の最後に未定義値が追加されます。</p>
+                    
+                  </div>
+                  
+                  <div class="exp01">
+                  	<h2>実習13</h2>
+                    <p>先ほどの 変数 car のループをlengthプロパティを用いて、作成してみましょう。</p>
+                  </div>
+                  
+                  <div class="blk01">                    
+                  <h5>3 多次元配列</h5>
+                  <p>配列の要素の中に配列を格納すると多次元配列として値を参照できます。<br />
+                  これは２次元配列の例です。</p>
+                  
+                  <pre class="brush:js">
+                	var table = new Array(10);
+					for( var i =0; i < table.length; i++){
+						table[i] = new Array(10);
+					}
+						
+					for( var row = 0; row < table.length; row++){
+						for(var col = 0; col < table[row].length; col++){
+							table[row][col] = row*col;
+                            // array[x][y]と書くと、配列の特定の数値にアクセスできる
+						}
+					}
+						
+					var product = table[5][7];			// 35
+                  </pre>
+                </div>
+
+                  <div class="exp01">
+                  	<h2>実習14</h2>
+                    <p>配列 carの4つめの要素に 変数 optionを加えてみましょう。<br />
+                    変数optionは</p>
+                    <ul>
+                    	<li>・オプション1(option1)はカーナビ(navigation)です。</li>
+                    	<li>・オプション2(option2)はETC(etc)です。</li>
+                    	<li>・オプション3(option3)はマフラー(exhaust pipe)です。</li>
+                    </ul>
+                   <p>変数optionをオブジェクトの状態と配列の状態で(プロパティはインデックスへ変更して)配列carに格納し、それぞれの要素にアクセスしてみましょう。</p>
+                  </div>                
+                
+                <div class="blk01">
+                <h3 id="basic.function">(4) 関数</h3>
+                <p>１度の定義だけでプログラムから何度も実行や呼び出しが行えるJavaScriptのコード部分を関数と呼びます。<br />
+			関数には引数を渡すことができます。関数は受け取った引数の値を使って処理を行い、戻り値を返します。</p>
+            
+            	<h4 id="basic.function.declaration">[1] 関数の定義と呼び出し</h4>
+                <p>関数定義の基本、function文の書き方</p>
+                
+                <pre class="brush:js">
+                	function 関数名(引数１, 引数２, 引数３){
+                    	処理;
+                        return 戻り値;
+                    }                	
+                </pre>
+                
+                <ul>
+                	<li>・先頭にキーワード <span class="em01">function</span>を記述します。</li>
+                    <li>・その後ろに関数の名前を指定します。(識別子として正当であれば、どんな識別子でも関数名として利用できます。)</li>
+                    <li>・その後ろに引数を () で囲んで指定します。引数が複数ある場合は , で区切ります。</li>
+                    <li>・関数の本体を構成する文を {} で囲んで指定します。文が複数ある場合は、セミコロンで区切ります。</li>
+                </ul>
+                
+                <pre class="brush:js">
+                	// 例１ 引数1と引数2を足して呼び出し元へ返す関数
+                    var num1 = 90;
+                    var num2 = 55;
+                    
+                    function sum(a, b){
+                    	return a + b;
+                    }
+                    
+                    var total = sum(num1, num2);
+                    // total は 145
+                    
+                    // 例２ console.logを省略する関数
+                    function print( str ){
+                    	console.log( str );
+                    }
+                    
+                    // 例３ 消費税を計算してくれる関数
+                    function taxPlus( price ){
+                    	var rate = 1.05;		// ローカル変数
+                        return price*rate;
+                    }
+                    
+                </pre>
+                
+                <p>例３にある<span class="em01">ローカル変数</span>は関数を定義している文ブロック内でしか使えない変数です。<br />
+                関数定義の外で使用しようとすると undefined になってしまいます。<br />
+                変数が使用出来る範囲のことを<span class="em01">スコープ</span>と言います。ローカル変数は関数宣言内だけで有効な変数ですが、プログラム全体で有効な変数を<span class="em01">グローバル変数</span>と言います。あわせて覚えておきましょう。</p>
+                 
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習15</h2>
+                    <p>変数car をガゾリン満タンで入れた場合、○○km 走るという関数を作り計算させ、変数 distanceに代入してみましょう。<br />
+                    ただし、乗客一人あたり、燃費は5%下がるものとします。
+                    </p>
+                </div>
+                                
+                <div class="blk01">
+                <h4 id="basic.function.literals">[2] 関数リテラル</h4>
+                <p>関数を定義するのに関数リテラルが使えます。関数リテラルは匿名関数を定義する式です。<br />
+				関数リテラルはfunction文の書式とほぼ同じです。function文は構文上は文であり、関数名が必要です。<br />
+				これに対して、関数リテラルは構文上は式であり、関数名が不要です。</p>
+                <pre class="brush:js">
+                function f(x){ return x*x; };			// function文
+				var f = function(x){ return x*x; };		// 関数リテラル
+                </pre>
+                
+                <p>関数リテラルは匿名関数を生成しますが、書式上は関数名を指定してもOKです。</p>
+                
+                <h5>▼関数名を指定したほうが便利な場合</h5>
+                <p>関数リテラルは式として生成されるので、非常に柔軟に利用でき、１回しか使わない関数や名前を付ける必要のない関数の記述に適しています。<br />
+				例えば、関数リテラル式を変数に格納したり、別の関数に渡したり、定義後すぐに呼び出したりできます。</p>
+                
+                <pre class="brush:js">
+                // 関数を定義し、変数に格納する。
+                f[0] = function(x){ return x*x; };
+                
+                // 関数を定義し、別の関数に渡す。
+				a.sort( function(a, b){ return a-b; });
+                
+                // 関数を定義してすぐ呼び出す[ 即時関数 ]
+				var tensquared = (function(x){ return x*x; })(10);
+                </pre>
+                </div>
+                
+                <div class="exp01">
+                <h2>実習16</h2>
+                <p>先ほどの変数distanceを 変数car のプロパティとして加えてみましょう。</p>
+                </div>
+                
+                <div class="blk01">
+                	 <h4 id="basic.function.data">[3]データとしての関数</h4>
+                     <p>関数はデータとしても扱えます。例えば変数に代入したり、オブジェクトのプロパティや配列の要素に格納したり、他の関数に渡したり、何でもできます。</p>
+                     
+                     <pre class="brush:js">
+                    function square(x){ return x*x; };
+					var a = square(4);					// aは16
+					var b = square;						// bはsquareと同じ関数を参照する。
+					var c = b(5);						// cは25
+                     </pre>
+                     
+                     <p>変数ではなく、プロパティに格納することも可能です。その場合関数ではなくメソッドと呼びます。</p>
+                     
+                     <pre class="brush:js">
+                    var o = new Object();											
+					o.square = function(x){ return x*x; };			// 関数リテラル
+					y = o.square(16);								// y は256
+                     </pre>
+                     
+                     <p>配列に格納すれば関数の名前を指定しなくても呼び出すことができます。</p>
+                     
+                     <pre class="brush:js">
+                    var a = new Array(3);
+					a[0] = function(x){ return x*x; };
+					a[1] = 20;
+					a[2] = a[0]( a[1] );							// a[2] は 400
+                     </pre>
+                </div>
+                
+                <div class="blk01">
+                	<h4 id="basic.function.methods">[4]メソッドとしての関数</h4>
+                    <p>オブジェクトのプロパティに格納されているJavascript関数で、このオブジェクトを介して呼び出される関数のことを<span class="em01">メソッド</span>と呼びます。<br />
+				関数はデータ値でもあるのでオブジェクトのプロパティや任意の変数に関数を割り当てることができます。<br />
+				関数を f、 オブジェクトを o、 メソッドを m とすると、次のように記述できます。</p>
+                	<pre class="brush:js">o.m = f;</pre>
+                    
+                    <p>また次の形式で呼び出せます。</p>
+                    
+                    <pre class="brush:js">o.m();</pre>
+                    
+                    <p>メソッドで非常に重要な点はメソッドを呼び出すときに使用したオブジェクトがメソッドの本体の中で <span class="em01">this</span> キーワードの値になることです。<br />
+				例えば、o.m() を呼び出したとき、this キーワードでオブジェクト o を参照できます。</p>
+                
+                <pre class="brush:js">
+                	var calculator = {
+						operand1 : 1,
+						operand2 : 1,
+						compute: function(){
+							this.result = this.operand1 + this.operand2;
+						}
+					};
+					cauculator.compute();   	// 1+1を計算する
+                </pre>
+                
+                <p>メソッドとして使用する関数には、通常の引数とは別に、呼び出すときに指定したオブジェクト(=this)というもう１つ引数が渡されるということです。<br />
+				関数がメソッドではなく関数として呼び出されるときは、this はグローバルオブジェクトを参照します。<br />
+				ブラウザで使うJSの場合、グローバルオブジェクトは <span class="em01">window</span> です。<br />
+				メソッドとして呼び出された関数中に入れ子にされた別の関数が関数として呼び出された場合も、グローバルオブジェクトを参照します。</p>
+                
+                <pre class="brush:js">
+                	// this はグローバルオブジェクト
+                	var fn = function(){ return this.x * this.y; }
+					
+					var obj = {};
+                    // this は obj
+					obj.fn = function(){ return this.x * this.y; };	
+					
+                    // thisはグローバルオブジェクト
+					obj.fnn = function(){
+						var fnc =  function(){ return this.x * this.y; };
+						fnc();
+					};
+                </pre>
+                </div>
+                
+                <div class="exp01">
+                	<h2>実習17</h2>
+                    <p>変数car をキーワードthisを使用して再定義してみましょう。</p>
+                </div>
+                                         
+                <!-- COMPORNENT
+                <div class="blk01">
+            		<h2>0. javascriptとはjavascriptとはjavascriptとはjavascriptとはjavascriptとは</h2>
+                	<h3>0. javascriptとはjavascriptとはjavascriptとはjavascriptとはjavascriptとは</h3>
+                	<h4><span>0. javascriptとはjavascriptとはjavascriptとはjavascriptとはjavascriptとは</span></h4>
+                	<h5><span>0. javascriptとはjavascriptとはjavascriptとはjavascriptとはjavascriptとは</span></h5>
+                	<h6><span>0. javascriptとはjavascriptとはjavascriptとはjavascriptとはjavascriptとは</span></h6>
+                    <p>Sun Microsystems社とNetscape Communications社が開発した、Webブラウザなどでの利用に適したスクリプト言語(簡易プログラミング言語)。
+Sun社のJava言語に似た記法を用いることが名称の由来だが、直接の互換性は無い。<br />
+従来は印刷物のような静的な表現しかできなかったWebページに、動きや対話性を付加することを目的に開発され、主要なWebブラウザのほとんどに搭載されている。</p>
+                    <pre class="brush: js">
+                    i = 5;// 一度宣言したら "var" はいらない。<br />
+                    aisatsu = "HELLO";// 文字列を代入する際はダブル/シングルコーテーションで囲む。<br />
+					var summer = "暑い";// 宣言と代入を一緒に。<br />
+					var marathon = 42.195;// 小数も代入可能。<br />
+					var nextX = x + x;// 式もいけます。
+                    </pre>
+                 </div-->
+            </div>
+            <!-- /MAIN -->
+            <!-- NAVI-->
+             <div id="navi">
+             	<ul class="pageNavi">
+             		<li class="nav_intro"><a href="#intro">0. javascriptとは</a></li>
+                    <li class="naviParent nav_basic">
+                        <a href="#basic">1. javascriptの基本文法</a>
+                    	<ul class="indexList01">
+                    		<li><a href="#basic.var">(1) 変数</a></li>
+                            <li class="naviParent">
+                                <a href="#basic.expressions">(2) 式と文</a>
+                            	<ul class="indexList02">
+                            		<li><a href="#basic.expressions.data">[1] データ型</a></li>
+                                    <li><a href="#basic.expressions.literals">[2] リテラルと式</a></li>
+                                    <li><a href="#basic_expressions_operator">[3] 演算子</a></li>
+                                    <li><a href="#basic.expressions.statement">[4] 文</a></li>
+                            	</ul>                            	
+                            </li>
+                            <li class="naviParent">
+                                <a href="#basic.object">(3) オブジェクトと配列</a>
+                                <ul class="indexList02">
+                            	    <li><a href="#basic.object.object">[1]オブジェクト</a></li>
+                                    <li><a href="#basic.object.arrays">[2]配列</a></li>
+                                </ul>
+                            </li>
+                            <li class="naviParent">
+                                <a href="#basic.function">(4) 関数</a>
+                                <ul class="indexList02">
+                            	    <li><a href="#basic.function.declaration">[1]関数の定義と呼び出し</a></li>
+                                    <li><a href="#basic.function.literals">[2]関数リテラル</a></li>
+                                    <li><a href="#basic.function.data">[3]データとしての関数</a></li>
+                                    <li><a href="#basic.function.methods">[4]メソッドとしての関数</a></li>
+                                </ul>
+                            </li>
+                    	</ul>
+                    </li>
+             	</ul>
+             </div>
+            <!-- /NAVI -->
+
+        </div>
+        <!-- /CONTENTS WRAPPER -->
+    </div>
+    <!-- /CONTENTS -->
+</div>
+<!-- /WRAPPER -->
+<script type="text/javascript" src="files/js/shCore.js" charset="UTF-8"></script>
+<script type="text/javascript" src="files/js/shAutoloader.js"></script>
+<script type="text/javascript" src="files/js/shLegacy.js"></script>
+<script type="text/javascript" src="files/js/shBrushXml.js"></script></script>
+<script type="text/javascript">
+SyntaxHighlighter.autoloader
+(
+"js jscript javascript  files/js/shBrushJScript.js"
+);
+SyntaxHighlighter.config.bloggerMode=true;
+SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="files/js/nav.js"></script>
+</body>
+</html>
